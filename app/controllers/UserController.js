@@ -1,6 +1,6 @@
 
 const services = require("../services/UserService");
-const url = "/api/v1/user";
+const url = "/api/v1/users";
 
 module.exports = function(app) {
     /**
@@ -16,4 +16,10 @@ module.exports = function(app) {
      * /api/v1/user/1
      */
     app.get(url + "/:id", services.GetById);
+    
+    /**
+     * lấy các user theo groupUserId
+     * Cre: pqhuy 09/03/2021
+     */
+    app.get(url + "/groupUserId/:groupUserId", services.GetByGroupUserId);
 }

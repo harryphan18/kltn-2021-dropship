@@ -1,6 +1,6 @@
 
 const services = require("../services/RoleService");
-const url = "/api/v1/role";
+const url = "/api/v1/roles";
 
 module.exports = function(app) {
     /**

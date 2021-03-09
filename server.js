@@ -2,11 +2,11 @@ var express = require("express");
 var app = express();
 
 // gọi global sequelize
-sequel = require("./dbconfig/db.config");
+sequelize = require("./dbconfig/db.config");
 
 // gọi global models
 initModels = require("./app/models/init-models");
-models = initModels(sequel);
+models = initModels(sequelize);
 
 // import controller
 require("./app/controllers/index")(app);

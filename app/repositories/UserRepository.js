@@ -1,3 +1,4 @@
+var BaseRepository = require("./base/BaseRepository");
 var User = models.user;
 
 /**
@@ -17,5 +18,16 @@ exports.GetById = async function(id) {
     var user = await User.findOne({
         where: { 'UserId' : id }
     });
+    return user;
+}
+
+/**
+ * lấy các user theo groupUserId
+ * Cre: pqhuy 09/03/2021
+ */
+exports.GetByGroupUserId = async function(groupUserId) {
+    var procedureName = "Proc_GetUserByGroupID";
+    var setParameter = await BaseRepository.SetParameterValues(procedureName, [groupUserId]);
+    var user = await BaseRepository.CallProcedure(procedureName, setParameter);
     return user;
 }

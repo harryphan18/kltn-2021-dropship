@@ -1,33 +1,46 @@
-var BaseRepository = require("./base/BaseRepository");
-var User = models.user;
+import BaseRepository from "./base/BaseRepository";
+import Entity from "../models/entities/index";
+var User = sequelizeModels.user;
 
-/**
- * Lấy tất cả bản ghi trong bảng User
- * Cre: pqhuy 08/03/2021
- */
-exports.GetAll = function() {
-    var users = User.findAll();
-    return users;
-}
+export default {
+    /**
+     * Lấy tất cả bản ghi trong bảng User
+     * Cre: pqhuy 08/03/2021
+     */
+    GetAll() {
+        var users = User.findAll();
+        return users;
+    },
 
-/**
- * Hàm lấy 1 bản ghi theo id
- * Cre: pqhuy 08/03/2021
- */
-exports.GetById = async function(id) {
-    var user = await User.findOne({
-        where: { 'UserId' : id }
-    });
-    return user;
-}
+    /**
+     * Hàm lấy 1 bản ghi theo id
+     * Cre: pqhuy 08/03/2021
+     */
+    async GetById(id) {
+        var user = await User.findOne({
+            where: { 'UserId' : id }
+        });
+        return user;
+    },
 
-/**
- * lấy các user theo groupUserId
- * Cre: pqhuy 09/03/2021
- */
-exports.GetByGroupUserId = async function(groupUserId) {
-    var procedureName = "Proc_GetUserByGroupID";
-    var setParameter = await BaseRepository.SetParameterValues(procedureName, [groupUserId]);
-    var user = await BaseRepository.CallProcedure(procedureName, setParameter);
-    return user;
+    /**
+     * lấy các user theo groupUserId
+     * Cre: pqhuy 09/03/2021
+     */
+    async GetByGroupUserId(groupUserId) {
+        var procedureName = "Proc_GetUserByGroupID";
+        var user = await BaseRepository.CallProcWithParams(procedureName, [groupUserId]);
+        return user;
+    },
+
+    /**
+     * Thêm mới bản ghi vào bảng user sử dụng stored
+     * Cre: pqhuy 11/03/2021
+     */
+    async CreateUser(newUser) {
+        var procedureName = "Proc_InsertUser";
+        var user = await BaseRepository.CallProcWithEntity(procedureName, newUser);
+        return user;
+    },
+
 }

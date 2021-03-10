@@ -1,12 +1,14 @@
 var express = require("express");
 var app = express();
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 // gọi global sequelize
 sequelize = require("./dbconfig/db.config");
 
 // gọi global models
-initModels = require("./app/models/init-models");
-models = initModels(sequelize);
+initModels = require("./app/models/sequelize-models/init-models");
+sequelizeModels = initModels(sequelize);
 
 // import controller
 require("./app/controllers/index")(app);

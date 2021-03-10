@@ -1,18 +1,24 @@
 {
-  "name": "testserver",
+  "name": "CommonService",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "start",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node -r esm server.js",
+    "sequelize-render": "node dbconfig/sequelize.auto.models.js"
   },
   "author": "pqhuy",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "esm": "^3.2.25",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.5.0",
     "sequelize-auto": "^0.8.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
   }
 }

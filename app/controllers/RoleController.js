@@ -1,5 +1,5 @@
 
-const services = require("../services/RoleService");
+import RoleService from "../services/RoleService";
 const url = "/api/v1/roles";
 
 module.exports = function(app) {
@@ -8,12 +8,12 @@ module.exports = function(app) {
      * Cre: pqhuy 08/03/2021
      * /api/v1/role
      */
-    app.get(url, services.GetAll);
+    app.get(url, RoleService.GetAll);
 
     /**
      * Lấy 1 bản ghi theo id
      * Cre: pqhuy 08/03/2021
      * /api/v1/role/1
      */
-    app.get(url + "/:id", services.GetById);
+    app.get(url + "/:id", RoleService.GetById);
 }

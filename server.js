@@ -4,11 +4,8 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 require('dotenv').config();
 
-
-// var pathconfig = require("./config/pathconfig");
-// global.abs = function(filePath){
-// 	return pathconfig.abs(filePath);
-// };
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsdoc from './config/swagger/swaggerJsdoc';
 
 // gọi global sequelize
 global.sequelize = require("./config/dbconfig/db.config");
@@ -18,7 +15,9 @@ var initModels = require("./app/models/sequelize-models/init-models");
 global.sequelizeModels = initModels(sequelize);
 
 // import controller
-require("./app/controllers/index")(app);
+global.routes = require("./app/controllers/index")(app);
+
+app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerJsdoc));
 
 // Create a Server
 var server = app.listen(process.env.PORT || 8080, function () {

@@ -1,5 +1,5 @@
 {
-  "name": "CommonService",
+  "name": "nodejsserver",
   "version": "1.0.0",
   "description": "",
   "main": "serve",
@@ -17,7 +17,9 @@
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
     "sequelize": "^6.5.0",
-    "sequelize-auto": "^0.8.0"
+    "sequelize-auto": "^0.8.0",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^4.1.0"

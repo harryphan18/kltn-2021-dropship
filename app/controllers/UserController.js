@@ -7,7 +7,7 @@ module.exports = function(app) {
      * Cre: pqhuy 08/03/2021
      * /api/v1/user
      */
-    app.get(url + "", UserService.GetAll);
+    app.get("", UserService.GetAll);
 
     /**
      * Lấy 1 bản ghi theo id

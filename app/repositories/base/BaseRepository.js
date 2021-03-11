@@ -1,4 +1,3 @@
-
 export default {
     /**
      * Thực hiện query bằng stored procedure và mảng các tham số

@@ -1,2 +1,5 @@
 # dependencies
 node_modules/.cache/
+
+# Visual Studio 2019 cache/options directory
+.vs/

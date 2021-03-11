@@ -1,5 +1,6 @@
 import BaseRepository from "./base/BaseRepository";
-import Entity from "../models/entities/index";
+// import {Role} from "@models/entities/index";
+// import Entity from "../models/entities/index";
 var User = sequelizeModels.user;
 
 export default {

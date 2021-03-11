@@ -1,6 +1,6 @@
 
 import RoleService from "../services/RoleService";
-const url = "/api/v1/roles";
+const url = process.env.API_URI + "roles";
 
 module.exports = function(app) {
     /**

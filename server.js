@@ -4,8 +4,14 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 require('dotenv').config();
 
+
+// var pathconfig = require("./config/pathconfig");
+// global.abs = function(filePath){
+// 	return pathconfig.abs(filePath);
+// };
+
 // gọi global sequelize
-global.sequelize = require("./dbconfig/db.config");
+global.sequelize = require("./config/dbconfig/db.config");
 
 // gọi global models
 var initModels = require("./app/models/sequelize-models/init-models");

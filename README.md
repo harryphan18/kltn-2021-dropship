@@ -1,3 +1,3 @@
 # kltn-2021-dropship
 
-run: node start
+run: npm run serve

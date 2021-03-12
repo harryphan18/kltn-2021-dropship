@@ -68,4 +68,10 @@ export default {
         var response = new BaseResponse(true, "Thêm user thành công.", 200, users);
         res.send(response);
     },
+
+    async UpdateUser(req, res) {
+        var users = await UserRepository.UpdateUser(req.params.testId);
+        var response = new BaseResponse(true, "Thêm user thành công.", 200, users);
+        res.send(response);
+    },
 }

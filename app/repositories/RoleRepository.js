@@ -1,3 +1,4 @@
+import BaseRepository from "./base/BaseRepository";
 var Role = sequelizeModels.role;
 
 export default {
@@ -6,7 +7,7 @@ export default {
      * Cre: pqhuy 08/03/2021
      */
     async GetAll() {
-        var roles = await Role.findAll();
+        var roles = await BaseRepository.GetAll(Role);
         return roles;
     },
 
@@ -15,9 +16,7 @@ export default {
      * Cre: pqhuy 08/03/2021
      */
     async GetById(id) {
-        var role = await Role.findOne({
-            where: { 'RoleId' : id }
-        });
+        var role = await BaseRepository.GetById(Role, id);
         return role;
     }
 }

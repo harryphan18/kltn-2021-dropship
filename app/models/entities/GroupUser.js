@@ -1,4 +1,5 @@
-class GroupUser {
+export class GroupUser 
+{
     constructor() {
         this.GroupUserID = null;
         this.GroupUserName = null;
@@ -9,5 +10,3 @@ class GroupUser {
         this.ModifiedDate = null;
     }
 }
-
-export default GroupUser;

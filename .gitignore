@@ -3,3 +3,5 @@ node_modules/.cache/
 
 # Visual Studio 2019 cache/options directory
 .vs/
+.vs/slnx.sqlite
+.vs/NodejsServer/v16/.suo

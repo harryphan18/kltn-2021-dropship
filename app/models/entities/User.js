@@ -1,4 +1,5 @@
-class User {
+export class User 
+{
     constructor() {
         this.UserID = null;
         this.RoleID = null;
@@ -15,5 +16,3 @@ class User {
         this.ModifiedDate = null;
     }
 }
-
-export default User;

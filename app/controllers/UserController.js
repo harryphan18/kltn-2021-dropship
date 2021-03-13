@@ -32,6 +32,10 @@ module.exports = function(app) {
     app.route(url + "")
         .post(UserService.CreateUser);
 
+    /**
+     * test
+     * Cre: pqhuy 13/03/2021
+     */
     app.route(url + "/testId/:testId")
         .get(UserService.UpdateUser);
 }
